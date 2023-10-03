@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
 import { GetAdvice } from '@/components/GetAdvice';
 import styles from './AdviceCard.module.css'
 import { Button } from '@/libs/ui/Button';
-import Image from 'next/image';
 import { Loading } from '@/widgets/Loading';
 import { AdviceType } from '@/components/GetAdvice/type';
 
@@ -18,6 +19,10 @@ export const AdviceCard = () => {
             setLoading(false)
         })
     }
+
+    useEffect(() => {
+        handleFunc();
+    }, [])
 
     return (
         <div className={styles.div__app}>
